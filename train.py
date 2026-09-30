@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import yaml
 import tensorflow as tf
 
@@ -53,7 +54,7 @@ model.save("models/model.h5")
 
 
 # Save training history
-history_df = __import__("pandas").DataFrame(history.history)
+history_df = pd.DataFrame(history.history)
 history_df.to_csv("models/history.csv", index=False)
 
 print("Training completed successfully.")
