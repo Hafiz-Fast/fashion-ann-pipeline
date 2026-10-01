@@ -19,9 +19,12 @@ x_test = np.load("data/raw/x_test.npy")
 y_test = np.load("data/raw/y_test.npy")
 
 
-# Normalize pixel values to 0-1
-x_train = x_train.astype("float32") / 255.0
-x_test = x_test.astype("float32") / 255.0
+# Normalize pixel values using min-max scaling
+x_train = x_train.astype("float32")
+x_test = x_test.astype("float32")
+
+x_train = (x_train - x_train.min()) / (x_train.max() - x_train.min())
+x_test = (x_test - x_test.min()) / (x_test.max() - x_test.min())
 
 
 # Split training data into train and validation
