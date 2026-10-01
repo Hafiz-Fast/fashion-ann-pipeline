@@ -1,5 +1,9 @@
+import os
 import numpy as np
 from keras.datasets import fashion_mnist
+
+# Create output directory
+os.makedirs("data/raw", exist_ok=True)
 
 # Load Fashion-MNIST
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()

@@ -1,6 +1,7 @@
 import numpy as np
 import yaml
 from sklearn.model_selection import train_test_split
+import os
 
 
 # Load parameters
@@ -31,6 +32,8 @@ x_train, x_val, y_train, y_val = train_test_split(
     random_state=seed
 )
 
+# Create output directory
+os.makedirs("data/processed", exist_ok=True)
 
 # Save processed data
 np.save("data/processed/x_train.npy", x_train)
